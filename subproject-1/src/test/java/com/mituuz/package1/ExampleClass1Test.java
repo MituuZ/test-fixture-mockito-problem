@@ -4,6 +4,9 @@ import com.mituuz.package2.ExampleClass2;
 import com.mituuz.testfixture.SharedTestClass;
 import org.junit.jupiter.api.Test;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 public class ExampleClass1Test {
     @Test
     void exampleTest() {
@@ -13,7 +16,7 @@ public class ExampleClass1Test {
 
         // Mock is not a dependency of the test fixture, so it is required as a separate dependency in the build file
         ExampleClass2 exampleClass2 = mock(ExampleClass2.class);
-        when(mock.getName()).thenReturn("MockedExampleClass2");
+        when(exampleClass2.getName()).thenReturn("MockedExampleClass2");
 
 
         SharedTestClass sharedTestClass = new SharedTestClass();
