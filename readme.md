@@ -9,6 +9,7 @@ I tried to replicate this issue that I had with a similar setup using mockito an
 I had a multi-module project in which I added the `java-test-fixtures` plugin and was greeted with this error: 
 (manually written and modified to match this example project)
 ```
+Could not determine the dependencies of task ':subproject-2:test'.
 > Could not resolve all dependencies for configuration ':subproject-2:testRuntimeClasspath'.
     > Could not resolve project :subproject-2
         Required by:
