@@ -2,3 +2,7 @@ dependencies {
     // Import the test fixtures from subproject-2
     testImplementation(testFixtures(project(":subproject-2")))
 }
+
+dependencies {
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '5.15.2'
+}
