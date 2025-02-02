@@ -22,7 +22,7 @@ WARNING: Dynamic loading of agents will be disallowed by default in a future rel
 
 To fix the warning, you must create a [gradle/libs.versions.toml](gradle/libs.versions.toml) file as instructed in the [link](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3).
 
-And add the following lines to the `build.gradle` file:
+And add the following lines to the `build.gradle` file: (the order of the lines does matter)
 ```groovy
 configurations {
     mockitoAgent
@@ -45,3 +45,10 @@ To avoid doing this for each project, you might want to do it only in the root p
 
 - [gradle/libs.versions.toml](gradle/libs.versions.toml)
 - [build.gradle](build.gradle)
+
+By doing this, you must only add the following dependency to the subprojects:
+```groovy
+dependencies {
+    testImplementation libs.mockito
+}
+```
