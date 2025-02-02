@@ -2,6 +2,26 @@ plugins {
     id 'java'
 }
 
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    mockitoAgent
+}
+
+dependencies {
+    mockitoAgent(libs.mockito) {
+        transitive = false
+    }
+}
+
+tasks {
+    test {
+        jvmArgs += "-javaagent:${configurations.mockitoAgent.asPath}"
+    }
+}
+
 group = 'org.example'
 version = '1.0-SNAPSHOT'
 
