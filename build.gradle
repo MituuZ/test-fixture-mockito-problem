@@ -2,26 +2,6 @@ plugins {
     id 'java'
 }
 
-repositories {
-    mavenCentral()
-}
-
-configurations {
-    mockitoAgent
-}
-
-dependencies {
-    mockitoAgent(libs.mockito) {
-        transitive = false
-    }
-}
-
-tasks {
-    test {
-        jvmArgs += "-javaagent:${configurations.mockitoAgent.asPath}"
-    }
-}
-
 group = 'org.example'
 version = '1.0-SNAPSHOT'
 
@@ -32,12 +12,20 @@ subprojects {
         mavenCentral()
     }
 
+    configurations {
+        mockitoAgent
+    }
+
     dependencies {
         testImplementation platform('org.junit:junit-bom:5.10.0')
         testImplementation 'org.junit.jupiter:junit-jupiter'
+        mockitoAgent(libs.mockito) {
+            transitive = false
+        }
     }
 
     test {
         useJUnitPlatform()
+        jvmArgs += "-javaagent:${configurations.mockitoAgent.asPath}"
     }
 }
