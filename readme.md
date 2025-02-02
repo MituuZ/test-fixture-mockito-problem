@@ -34,12 +34,11 @@ because I was not able to replicate the issue by just creating a new project wit
 Hopefully, this example will still help someone else with the same issue, even if it does not replicate the exact problem.
 
 ## Solution
-I was able to solve the issue by removing the following line from the main [build.gradle](build.gradle) file:
+I was able to solve the issue by removing the following line from the main [build.gradle](build.gradle) file 
+and moving it to each subproject's build file after the `java-test-fixtures` plugin declaration:
 ```groovy
 jvmArgs += "-javaagent:${configurations.mockitoAgent.asPath}"
 ```
-
-By adding this to the subprojects, and after the `java-test-fixtures` plugin declaration, the issue was resolved.
 
 ## Relevant change by Mockito
 Adding the following dependency to the `build.gradle` file causes a warning when running tests:
