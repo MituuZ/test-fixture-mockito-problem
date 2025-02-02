@@ -1,7 +1,3 @@
 plugins {
     id 'java-test-fixtures'
 }
-
-dependencies {
-    testImplementation group: 'org.mockito', name: 'mockito-core', version: '5.15.2'
-}
