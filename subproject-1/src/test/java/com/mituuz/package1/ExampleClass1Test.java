@@ -1,10 +1,13 @@
+package com.mituuz.package1;
+
 import com.mituuz.testfixture.SharedTestClass;
 import org.junit.jupiter.api.Test;
 
-public class ExampleClass2Test {
+public class ExampleClass1Test {
     @Test
     void exampleTest() {
-        // Test sources in the same subproject have access to test fixtures by default
+        // In another package the test fixture must be imported to be used
+        // @see subproject-1/build.gradle
         SharedTestClass sharedTestClass = new SharedTestClass();
         sharedTestClass.sayHello();
     }
