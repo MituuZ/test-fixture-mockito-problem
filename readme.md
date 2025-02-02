@@ -3,6 +3,37 @@
 - Gradle 8.11.1
 - Mockito 5.15.2
 
+## Motivation for this example
+I tried to replicate this issue that I had with a similar setup using mockito and test fixtures.
+
+I had a multi-module project in which I added the `java-test-fixtures` plugin and was greeted with this error: 
+(manually written and modified to match this example project)
+```
+> Could not resolve all dependencies for configuration ':subproject-2:testRuntimeClasspath'.
+    > Could not resolve project :subproject-2
+        Required by:
+            project :subproject-2
+            > Unable to find a variant providing the requested capability 'test-fixture-mockito-problem:subproject-2-test-fixtures':
+                - Variant 'apiElements' provides 'test-fixture-mockito-problem:subproject-2:unspecified'
+                - Variant 'coverageDataElementsForTest' provides 'test-fixture-mockito-problem:subproject-2:unspecified'
+                - Variant 'mainSourceElements' provides 'test-fixture-mockito-problem:subproject-2:unspecified'
+                - Variant 'runtimeElements' provides 'test-fixture-mockito-problem:subproject-2:unspecified'
+                - Variant 'testFixturesApiElements' provides 'test-fixture-mockito-problem:subproject-2:1.0-SNAPSHOT'
+                - Variant 'testFixturesRuntimeElements' provides 'test-fixture-mockito-problem:subproject-2:1.0-SNAPSHOT'
+                - Variant 'testResultsElementsForTest' provides 'test-fixture-mockito-problem:subproject-2:unspecified'
+```
+
+It seems that there was something more, because I was not able to replicate the issue by just using the blocks that solved it.
+
+### Solution
+I was able to solve the issue by removing the following line from the main [build.gradle](build.gradle) file:
+```groovy
+jvmArgs += "-javaagent:${configurations.mockitoAgent.asPath}"
+```
+
+By adding this to the subprojects, and after the `java-test-fixtures` plugin declaration, the issue was resolved.
+
+
 ## Problem with mockito
 Adding the following dependency to the `build.gradle` file causes a warning when running tests:
 ```groovy
