@@ -3,10 +3,14 @@ package com.mituuz.testfixture;
 import com.mituuz.package2.ExampleClass2;
 
 public class SharedTestClass {
-    public void sayHello() {
-        // Test fixtures have access to the main sources in the same project by default
-        ExampleClass2 exampleClass2 = new ExampleClass2();
+    // Test fixtures have access to the main sources in the same project by default
+    private final ExampleClass2 exampleClass2;
 
-        System.out.println(exampleClass2.getName());
+    public SharedTestClass(ExampleClass2 exampleClass2) {
+        this.exampleClass2 = exampleClass2;
+    }
+
+    public String sayHello() {
+        return exampleClass2.getName();
     }
 }
