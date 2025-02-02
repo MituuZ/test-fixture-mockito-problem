@@ -1,3 +1,7 @@
+# Stack
+- Java 21
+- Gradle 8.10
+- Mockito 5.15.2
 
 
 ```
