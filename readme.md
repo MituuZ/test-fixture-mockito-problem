@@ -29,8 +29,9 @@ Could not determine the dependencies of task ':subproject-2:test'.
 ```
 
 It seems that there was something more, 
-because I was not able to replicate the issue by creating a new project with the same setup.
-Hopefully, this example will help someone else with the same issue, even if it does not replicate the exact problem.
+because I was not able to replicate the issue by just creating a new project with the same setup.
+
+Hopefully, this example will still help someone else with the same issue, even if it does not replicate the exact problem.
 
 ## Solution
 I was able to solve the issue by removing the following line from the main [build.gradle](build.gradle) file:
