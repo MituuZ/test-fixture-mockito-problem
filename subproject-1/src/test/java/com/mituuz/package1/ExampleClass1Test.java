@@ -13,7 +13,7 @@ public class ExampleClass1Test {
     void exampleTest() {
         // In another package the test fixture must be imported to be used
         // @see subproject-1/build.gradle
-        // Because the test fixture has access to its project's main, it can be used in this subproject too
+        // Because the test fixture has access to its project's main, it can be used in this subproject too (ExampleClass2)
 
         // Mock is not a dependency of the test fixture, so it is required as a separate dependency in the build file
         ExampleClass2 exampleClass2Mock = mock(ExampleClass2.class);

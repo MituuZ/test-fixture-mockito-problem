@@ -2,6 +2,10 @@
 This project demonstrates a multi-module setup using Java, Gradle, and Mockito. 
 It aims to ~~replicate and~~ solve an issue related to the `java-test-fixtures` plugin and Mockito.
 
+It also works as an example of how to use the `java-test-fixtures` plugin.
+- [Shared test fixture class](subproject-2/src/testFixtures/java/com/mituuz/testfixture/SharedTestClass.java)
+- [Test class in another subproject using the shared test fixture](subproject-1/src/test/java/com/mituuz/package1/ExampleClass1Test.java)
+
 # Stack
 - Java 21
 - Gradle 8.11.1
