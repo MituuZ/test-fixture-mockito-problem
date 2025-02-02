@@ -18,8 +18,8 @@ I had a multi-module project in which I added the `java-test-fixtures` plugin an
                 - Variant 'coverageDataElementsForTest' provides 'test-fixture-mockito-problem:subproject-2:unspecified'
                 - Variant 'mainSourceElements' provides 'test-fixture-mockito-problem:subproject-2:unspecified'
                 - Variant 'runtimeElements' provides 'test-fixture-mockito-problem:subproject-2:unspecified'
-                - Variant 'testFixturesApiElements' provides 'test-fixture-mockito-problem:subproject-2:1.0-SNAPSHOT'
-                - Variant 'testFixturesRuntimeElements' provides 'test-fixture-mockito-problem:subproject-2:1.0-SNAPSHOT'
+                - Variant 'testFixturesApiElements' provides 'com.mituuz:subproject-2-test-fixtures:1.0-SNAPSHOT'
+                - Variant 'testFixturesRuntimeElements' provides 'com.mituuz:subproject-2-test-fixtures:1.0-SNAPSHOT'
                 - Variant 'testResultsElementsForTest' provides 'test-fixture-mockito-problem:subproject-2:unspecified'
 ```
 
