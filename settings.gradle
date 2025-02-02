@@ -1,2 +1,4 @@
 rootProject.name = 'test-fixture-mockito-problem'
 
+include 'subproject-1'
+include 'subproject-2'
