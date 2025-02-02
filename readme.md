@@ -1,9 +1,13 @@
+# Project overview
+This project demonstrates a multi-module setup using Java, Gradle, and Mockito. 
+It aims to ~~replicate and~~ solve an issue related to the `java-test-fixtures` plugin and Mockito.
+
 # Stack
 - Java 21
 - Gradle 8.11.1
 - Mockito 5.15.2
 
-## Motivation for this example
+# Motivation
 I tried to replicate this issue that I had with a similar setup using mockito and test fixtures.
 
 I had a multi-module project in which I added the `java-test-fixtures` plugin and was greeted with this error: 
@@ -28,7 +32,7 @@ It seems that there was something more,
 because I was not able to replicate the issue by creating a new project with the same setup.
 Hopefully, this example will help someone else with the same issue, even if it does not replicate the exact problem.
 
-### Solution
+## Solution
 I was able to solve the issue by removing the following line from the main [build.gradle](build.gradle) file:
 ```groovy
 jvmArgs += "-javaagent:${configurations.mockitoAgent.asPath}"
@@ -36,8 +40,7 @@ jvmArgs += "-javaagent:${configurations.mockitoAgent.asPath}"
 
 By adding this to the subprojects, and after the `java-test-fixtures` plugin declaration, the issue was resolved.
 
-
-## Problem with mockito
+## Relevant change by Mockito
 Adding the following dependency to the `build.gradle` file causes a warning when running tests:
 ```groovy
 dependencies {
@@ -54,7 +57,8 @@ WARNING: If a serviceability tool is not in use, please run with -Djdk.instrumen
 WARNING: Dynamic loading of agents will be disallowed by default in a future release
 ```
 
-To fix the warning, you must create a [gradle/libs.versions.toml](gradle/libs.versions.toml) file as instructed in the [link](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3).
+To fix the warning, you must create a [gradle/libs.versions.toml](gradle/libs.versions.toml) file as instructed in the 
+provided [link](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3).
 
 And add the following lines to the `build.gradle` file: (the order of the lines does matter)
 ```groovy
@@ -86,3 +90,6 @@ dependencies {
     testImplementation libs.mockito
 }
 ```
+
+- [subproject-1/build.gradle](subproject-1/build.gradle)
+- [subproject-2/build.gradle](subproject-2/build.gradle)
