@@ -12,9 +12,9 @@ It also works as an example of how to use the `java-test-fixtures` plugin.
 - Mockito 5.15.2
 
 # Motivation
-I tried to replicate this issue that I had with a similar setup using mockito and test fixtures.
+I tried to replicate this issue that our team had with a similar setup using mockito and test fixtures.
 
-I had a multi-module project in which I added the `java-test-fixtures` plugin and was greeted with this error: 
+We had a multi-module project in which we added the `java-test-fixtures` plugin and was greeted with this error: 
 (manually written and modified to match this example project)
 ```
 Could not determine the dependencies of task ':subproject-2:test'.
